@@ -1,0 +1,10 @@
+* source LAB1_PRELAB_CNL
+D_D1         N00122 0 D1N4004 
+R_R1         N00122 N00092  330 TC=0,0 
+V_V1         N00092 0 {VDC}
+V_V2         VS 0  AC 0
++SIN 0 10 60 0 0 0
+R_R2         0 VO  1k TC=0,0 
+D_D2         VS VO D1N4004 
+C_C1         0 VO  10uF  TC=0,0 
+.PARAM  vdc=0

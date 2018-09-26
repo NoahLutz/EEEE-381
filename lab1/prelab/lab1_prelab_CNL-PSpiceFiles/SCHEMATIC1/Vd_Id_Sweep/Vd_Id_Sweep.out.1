@@ -1,0 +1,43 @@
+
+**** 09/25/18 10:24:30 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-Vd_Id_Sweep"  [ E:\Electronics 1 Lab\lab1\prelab\lab1_prelab_CNL-PSpiceFiles\SCHEMATIC1\Vd_Id_Sweep.sim ] 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "Vd_Id_Sweep.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Users\cnl9674\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.DC LIN PARAM {VDC} 0 10 1 
+--------------$
+ERROR(ORPSIM-16060): Invalid global param name
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source LAB1_PRELAB_CNL
+D_D1         N00122 0 D1N4004 
+R_R1         N00122 N00092  330 TC=0,0 
+V_V1         N00092 0 {VDC}
+.PARAM  vdc=0
+
+**** RESUMING Vd_Id_Sweep.cir ****
+.END
+

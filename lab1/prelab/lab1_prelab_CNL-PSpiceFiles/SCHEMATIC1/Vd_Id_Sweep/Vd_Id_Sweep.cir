@@ -1,0 +1,19 @@
+** Profile: "SCHEMATIC1-Vd_Id_Sweep"  [ E:\Electronics 1 Lab\lab1\prelab\lab1_prelab_cnl-pspicefiles\schematic1\vd_id_sweep.sim ] 
+
+** Creating circuit file "Vd_Id_Sweep.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Users\cnl9674\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.DC LIN PARAM VDC -10V 500V 10V 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+.END
