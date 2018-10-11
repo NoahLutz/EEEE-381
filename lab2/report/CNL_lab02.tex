@@ -156,10 +156,17 @@ the line created by the \(I_d\) vs. \(V_{DS}\) curve when the MOSFET is in
 		\end{tabular}
 	\end{table}
 	
+	It's important to note, during the experiment, none of the given values of 
+	\(V_{SD}\) for \(V_{SB} = 5 \si\volt\) were enough to cause the NMOS transitor to turn on. In order to 
+	get some meaningful data out of that dataset, the minimum voltage that was
+	required to turn on the MOSFET was recorded as 4.8 \si\volt. 
+
+	\hfill \break
+
 	A linear regression was used to find a line of best fit for the extraction
-	of the body-effect parameter (\(\gamma\)) and the threshold voltage (\(V_t\)).
+	of the transconductance parameter (\(k\)) and the threshold voltage (\(V_t\)).
 	The experimental values for \(V_t\) that were found can be seen in Table
-	\ref{table:experimental_vt} and the experimental value for \(\gamma\) can
+	\ref{table:experimental_vt} and the experimental value for \(k\) can
 	be seen in Table \ref{table:experimental_body}.
 
 	\begin{table}[H]
@@ -172,44 +179,156 @@ the line created by the \(I_d\) vs. \(V_{DS}\) curve when the MOSFET is in
 			\hline
 			& NMOS & PMOS\\
 			\hline
-			0 & 0.644 & 0.669\\
-			2 & 1.08 & 0.77\\
-			5 & 4.8 & 0.839\\
+			0 & 1.23 & 1.30\\
+			2 & 2.96 & 1.59\\
+			5 & 4.8 & 1.85\\
 			\hline
 		\end{tabular}
 	\end{table}
 
 	\begin{table}[H]
 		\centering
-		\caption{MOSFET \(\gamma\) parameter extraction}
+		\caption{MOSFET \(k\) parameter extraction}
 		\label{table:experimental_body}
-		\begin{tabular}{|c|c|}
+		\begin{tabular}{|c|c|c|}
 			\hline
-			\textbf{MOSFET} & \(\mathbf{\gamma}\)\\
+			\textbf{MOSFET} & \(\mathbf{k}\) & \(\mu\)\\
 			\hline
-			NMOS & 9.6265\\
-			PMOS & 12.2729\\
+			NMOS & 21.1959 & 2.1196 \(\times 10^{7}\)\\
+			PMOS & 19.2986 & 1.9297 \(\times 10^{7}\)\\
 			\hline
 		\end{tabular}
 	\end{table}
-	Tables, graphs, equations, and prose should be used to convey all of the
-	results in an easy-to-follow format. Details should be provided to 
-	explain how the experimental results were obtained. The text should 
-	explain any knowledge and/or information gained by performing the experiment.
-	All questions posed in the labratory handout and/or by the TAs in lab should
-	be answered.\\
+	
+	A graph of \(V_t\) vs. \(\sqrt{2\phi_f + |V_{SB}|} - \sqrt{2\phi_f}\) was
+	created in order to extract the body-effect parameter (\(\gamma\)) for both
+	the NMOS and PMOS transistors. This graph and the value for \(\gamma\) can 
+	be seen in Figure \ref{fig:body-effect} and Table \ref{table:body-effect}.
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=4 in]{vt_vsb_body.png}
+		\caption{\(V_t\) vs. \(\sqrt{2\phi_f + |V_{SB}|} - \sqrt{2\phi_f}\)}
+		\label{fig:body-effect}
+	\end{figure}
+
+	\begin{table}[H]
+		\centering
+		\caption{Body-effect Parameter (\(\gamma\))}
+		\label{table:body-effect}
+		\begin{tabular}{|c|c|}
+			\hline
+			\textbf{MOSFET Type} & \(\gamma\)\\
+			\hline
+			NMOS & 2.24\\
+			PMOS & 0.346\\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	The next step in the experiment was to find the substrate doping parameter
+	\(N_{sub}\) using two different methods. The first uses Equation
+	\ref{equ:body-effect} and the second uses Equation \ref{equ:n_sub_2}.
+	
+	\begin{equation}
+		\label{equ:n_sub_2}
+		\mu = \mu_{min} + \frac{\mu_{max} - \mu_{min}}{1+(\frac{N_{sub}}{N_{ref}})}
+	\end{equation}
+
+	Rearranging Equation \ref{equ:body-effect} for \(N_{sub}\), a simple
+	equation is derrived (\ref{equ:n_sub_1}).
+
+	\begin{equation}
+		\label{equ:n_sub_1}
+		N_{sub} = \frac{(\gamma C_{ox})^2}{2q\varepsilon_s}
+	\end{equation}
+
+	Using the extracted value of \(\gamma\) and the assumed values for \(C_{ox}\)
+	, \(q\), and \(\varepsilon_s\), the value for \(\gamma\) can be calculated.
+	This value can be found in Table \ref{table:Nsub}.
+	
 	\hfill \break
-	All plots must be created using a software package (e.g. EXCEL or MATLAB).
-	Tables and equations must not be hand drawn. Be sure to include comparisions
-	between theoretical, simulation, and hardware results, as well as
-	comparison to design specifications where appropriate.
+
+	Rearranging Equation \ref{equ:n_sub_2} for \(N_{sub}\), a slightly
+	more complex equation is derrived (\ref{equ:n_sub_2d}).
+
+	\begin{equation}
+		\label{equ:n_sub_2d}
+		N_{sub} = N_{ref}\bigg(\frac{\mu_{max} - \mu_{min}}{\mu-\mu_{min}} - 1\bigg)
+	\end{equation}
+	
+	Using the given values for \(\mu_{max}\), \(\mu_{min}\), \(N_{ref}\) and the 
+	experimental values for \(\mu\), the \(N_{sub}\) parameter can be calculated.
+	This value can also be found in Table \ref{table:Nsub}.
+	\begin{table}[H]
+		\centering
+		\caption{Calculated \(N_{sub}\) values}
+		\label{table:Nsub}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{MOSFET Type} & \(\mathbf{N_{sub}}\) (Method 1) & \(\mathbf{N_{sub}}\) (Method 2)\\
+			\hline
+			NMOS & 134.017 & 9.2$\times 10^{13}$\\
+			PMOS & 3.19754 & 2.23$\times 10^{14}$\\
+			\hline
+		\end{tabular}
+	\end{table}
+
+	These two methods for finding $N_{sub}$ produced vastly different values.
+	this is partly due to the fact that one method assumes uniform substrate
+	doping, which is not the reality. Also, the large difference between the
+	values could be due to calculation errors. This seems like the most likley
+	reason due the the extremly large difference between the values.
+
+	\hfill \break
+
+	The last part of the exercise was to extract the channel length modulation
+	parameter ($\lambda_p and \lambda_n$). This was done by plotting $I_D$ vs.
+	$|V_{DS}|$ and using a linear regression to fit the curve created when the
+	device is in saturation. The x-intercept of this line is the early voltage
+	($V_A$). The $\lambda$ is then the inverse of the early voltage. Figure
+	\ref{fig:nmos_id_vs_vds} and \ref{fig:pmos_id_vs_vds} shows the graph of
+	$I_D$ vs. $|V_{DS}|$ for both the NMOS and PMOS devices.
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=4 in]{nmos_id_vds.png}
+		\caption{NMOS $I_D$ vs. $|V_{DS}|$}
+		\label{fig:nmos_id_vs_vds}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=4 in]{pmos_id_vds.png}
+		\caption{PMOS $I_D$ vs. $|V_{DS}|$}
+		\label{fig:pmos_id_vs_vds}
+	\end{figure}
+
+	The $|V_A|$ values that were found using the trendline when the device
+	was in saturation can be found in Table \ref{table:early_voltage}.
+
+	\begin{table}[H]
+		\centering
+		\caption{Extracted $|V_A|$ and $\lambda$}
+		\label{table:early_voltage}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{MOSFET Type} & \(|\mathbf{V_A}|\) & $\lambda$\\
+			\hline
+			NMOS & 56.6 & 0.01767\\
+			PMOS & 19.7 & 0.05076\\
+			\hline
+		\end{tabular}
+	\end{table}
+
+	These values were relativley close for the values of $V_A$ found on the
+	datasheet for the NMOS and PMOS transistors. 
 
 	\section{Conclusion}
-	A breif section contaning one or two paragraphs that concisely states the
-	nature/objective of the assignment, the approch taken to complete the
-	assignment, and general observations about the outcome(s). Breif commentary
-	on agreement -- or lack thereof -- between theory and experiment would be 
-	appropriate, but specific results that were already reported and discussed
-	at length in the \textit{Results and Discussion} section should not be 
-	repeated.
+	The goal of this lab was to understand the different parameters in
+	DC and AC biasing of MOSFET transistors. Parameters such as $k$, $V_t$,
+	$\mu$, $\gamma$, and $\lambda$ were extracted using graphs and relationships
+	between $I_D$ and $V_{DS}$. Most of the experimentally found values agreed
+	with the theorized values, except for the second method for finding
+	$N_{sub}$.
 \end{document}

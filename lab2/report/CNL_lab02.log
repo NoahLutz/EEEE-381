@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.9.5)  9 OCT 2018 21:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.9.5)  11 OCT 2018 10:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -700,30 +700,61 @@ File: ../pictures/pmos_vt.png Graphic file (type png)
 Package pdftex.def Info: ../pictures/pmos_vt.png  used on input line 131.
 (pdftex.def)             Requested size: 289.07999pt x 180.32657pt.
  [2 <../pictures/nmos_vt.png>]
-[3 <../pictures/pmos_vt.png>] [4] (./CNL_lab02.aux) ) 
+Underfull \hbox (badness 10000) in paragraph at lines 164--165
+ 
+ []
+
+[3 <../pictures/pmos_vt.png>]
+<../pictures/vt_vsb_body.png, id=27, 596.2275pt x 363.3575pt>
+File: ../pictures/vt_vsb_body.png Graphic file (type png)
+<use ../pictures/vt_vsb_body.png>
+Package pdftex.def Info: ../pictures/vt_vsb_body.png  used on input line 210.
+(pdftex.def)             Requested size: 289.07999pt x 176.17271pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 250--251
+ 
+ []
+
+[4 <../pictures/vt_vsb_body.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 283--284
+ 
+ []
+
+<../pictures/nmos_id_vds.png, id=33, 503.8825pt x 308.15125pt>
+File: ../pictures/nmos_id_vds.png Graphic file (type png)
+<use ../pictures/nmos_id_vds.png>
+Package pdftex.def Info: ../pictures/nmos_id_vds.png  used on input line 295.
+(pdftex.def)             Requested size: 289.07999pt x 176.7859pt.
+<../pictures/pmos_id_vds.png, id=34, 528.97626pt x 311.1625pt>
+File: ../pictures/pmos_id_vds.png Graphic file (type png)
+<use ../pictures/pmos_id_vds.png>
+Package pdftex.def Info: ../pictures/pmos_id_vds.png  used on input line 302.
+(pdftex.def)             Requested size: 289.07999pt x 170.04787pt.
+[5 <../pictures/nmos_id_vds.png>] [6 <../pictures/pmos_id_vds.png>]
+(./CNL_lab02.aux) ) 
 Here is how much of TeX's memory you used:
- 13790 strings out of 492642
- 278857 string characters out of 6135567
- 305089 words of memory out of 5000000
- 17595 multiletter control sequences out of 15000+600000
- 539990 words of font info for 50 fonts, out of 8000000 for 9000
+ 13817 strings out of 492642
+ 279469 string characters out of 6135567
+ 305161 words of memory out of 5000000
+ 17619 multiletter control sequences out of 15000+600000
+ 540421 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,13n,63p,276b,944s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fon
-ts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></us
-r/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
-></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/font
-s/type1/public/cm-super/sfrm1095.pfb>
-Output written on CNL_lab02.pdf (4 pages, 151364 bytes).
+{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1
+.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
+re/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></
+usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pf
+b>
+Output written on CNL_lab02.pdf (6 pages, 186677 bytes).
 PDF statistics:
- 67 PDF objects out of 1000 (max. 8388607)
- 45 compressed objects within 1 object stream
+ 79 PDF objects out of 1000 (max. 8388607)
+ 49 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
