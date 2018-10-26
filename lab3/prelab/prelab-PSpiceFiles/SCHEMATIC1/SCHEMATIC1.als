@@ -1,0 +1,16 @@
+.ALIASES
+M_M1            M1(d=N00529 g=N00097 s=VSS b=VSS ) CN @PRELAB.SCHEMATIC1(sch_1):INS43@BREAKOUT.MbreakN.Normal(chips)
+M_M2            M2(d=VSS g=N00097 s=N00097 b=VSS ) CN @PRELAB.SCHEMATIC1(sch_1):INS77@BREAKOUT.MbreakN.Normal(chips)
+R_RL            RL(1=N00529 2=VDD ) CN @PRELAB.SCHEMATIC1(sch_1):INS174@ANALOG.R.Normal(chips)
+R_Rref          Rref(1=N00097 2=VDD ) CN @PRELAB.SCHEMATIC1(sch_1):INS190@ANALOG.R.Normal(chips)
+V_V1            V1(+=VDD -=0 ) CN @PRELAB.SCHEMATIC1(sch_1):INS273@SOURCE.VDC.Normal(chips)
+V_V2            V2(+=0 -=VSS ) CN @PRELAB.SCHEMATIC1(sch_1):INS289@SOURCE.VDC.Normal(chips)
+M_M3            M3(d=N00751 g=N00747 s=N00747 b=VSS ) CN @PRELAB.SCHEMATIC1(sch_1):INS617@BREAKOUT.MbreakN.Normal(chips)
+M_M4            M4(d=VSS g=N00743 s=N00751 b=VSS ) CN @PRELAB.SCHEMATIC1(sch_1):INS651@BREAKOUT.MbreakN.Normal(chips)
+M_M5            M5(d=N00831 g=N00747 s=N00743 b=VSS ) CN @PRELAB.SCHEMATIC1(sch_1):INS685@BREAKOUT.MbreakN.Normal(chips)
+M_M6            M6(d=N00743 g=N00743 s=VSS b=VSS ) CN @PRELAB.SCHEMATIC1(sch_1):INS719@BREAKOUT.MbreakN.Normal(chips)
+R_Rref1          Rref1(1=N00747 2=VDD ) CN @PRELAB.SCHEMATIC1(sch_1):INS811@ANALOG.R.Normal(chips)
+R_RL1           RL1(1=N00831 2=VDD ) CN @PRELAB.SCHEMATIC1(sch_1):INS845@ANALOG.R.Normal(chips)
+_    _(VDD=VDD)
+_    _(VSS=VSS)
+.ENDALIASES

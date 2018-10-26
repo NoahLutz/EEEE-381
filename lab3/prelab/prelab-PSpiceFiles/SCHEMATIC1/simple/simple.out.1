@@ -1,0 +1,57 @@
+
+**** 10/17/18 18:05:23 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-simple"  [ E:\Electronics 1 Lab\lab3\prelab\prelab-PSpiceFiles\SCHEMATIC1\simple.sim ] 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "simple.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Users\cnl9674\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+.lib "nom.lib" 
+.stmlib ".\spice.txt" 
+
+*Analysis directives: 
+.DC LIN PARAM RL 100 2000 50 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source PRELAB
+M_M1         N00119 N00097 VSS VSS RIT4007N7  
++ L=10u  
++ W=170u      
++ NRD=0.1  
++ NRS=0.1   
+M_M2         VSS N00097 N00097 VSS RIT4007N7  
++ L=10u  
++ W=170u      
++ NRD=0.1  
++ NRS=0.1   
+R_RL         N00119 VDD  {RL} TC=0,0 
+R_Rref         N00097 VDD  390 TC=0,0 
+V_V1         VDD 0 5Vdc
+V_V2         0 VSS 5Vdc
+.PARAM  rl=100
+
+**** RESUMING simple.cir ****
+.END
+
+ERROR(ORPSIM-15113): Model RIT4007N7 used by M_M1 is undefined
+
+ERROR(ORPSIM-15113): Model RIT4007N7 used by M_M2 is undefined
+
