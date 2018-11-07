@@ -1,0 +1,37 @@
+* source LAB4_PRELAB
+M_M1         N00173 N00634 N00185 VSS RIT4007N7  
++ L=10u  
++ W=170u      
++ NRD=0.1  
++ NRS=0.1   
+M_M2         N00185 N00634 N00169 VSS RIT4007N7  
++ L=10u  
++ W=170u      
++ NRD=0.1  
++ NRS=0.1   
+M_M3         VDD N00173 N00169 VDD RIT4007P7  
++ L=10u  
++ W=170u      
++ NRD=0.1  
++ NRS=0.1   
+M_M4         N00173 N00173 VDD VDD RIT4007P7  
++ L=10u  
++ W=170u      
++ NRD=0.1  
++ NRS=0.1   
+M_M5         N00185 N00370 VSS VSS RIT4007N7  
++ L=10u  
++ W=170u      
++ NRD=0.1  
++ NRS=0.1   
+M_M6         VSS N00370 N00370 VSS RIT4007N7  
++ L=10u  
++ W=170u      
++ NRD=0.1  
++ NRS=0.1   
+R_R1         N00370 VDD  1.3k TC=0,0 
+V_V1         VDD 0 5Vdc
+V_V2         0 VSS 5Vdc
+V_V3         N03116 0 1.5Vdc
+V_V4         N00634 N03116  
++SIN 0 10mV 1kHz 0 0 0
