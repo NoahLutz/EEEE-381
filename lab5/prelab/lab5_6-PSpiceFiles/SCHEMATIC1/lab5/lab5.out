@@ -1,0 +1,666 @@
+
+**** 12/06/18 17:49:07 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-lab5"  [ E:\Electronics 1 Lab\lab5\prelab\lab5_6-PSpiceFiles\SCHEMATIC1\lab5.sim ] 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "lab5.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.INC "../../../spice.txt" 
+* From [PSPICE NETLIST] section of C:\Users\cnl9674\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+
+**** INCLUDING spice.txt ****
+*SPICE MODELS FOR RIT DEVICES AND LABS - DR. LYNN FULLER 1-11-2017
+*LOCATION DR.FULLER'S COMPUTER
+*and also at: http://people.rit.edu/lffeee
+*
+.model RITMEMDIODE D IS=3.02E-9 N=1 RS=207
++VJ=0.6 CJO=200e-12 M=0.5 BV=400
+*
+.model SolarCell D IS=235e-9 N=1 Rs=6.85 CJO=200e-12 M=0.5 BV=400
+*
+*Electronics II EEEE482 for 2N3904
+.MODEL QRITNPN NPN (BF=416 IKF=.06678 ISE=6.734E-15 IS=6.734E-15 NE=1.259 RC=1 RB=10 VAF=109)
+*
+*Electronics II EEEE482 for 2N3906
+*.MODEL QRITPNP PNP (BF=181 IKF=.080 ISE=0 IS=1.41E-15 NE=1.5 RC=2.5 RB=10 VAF=18.7 )
+*
+*Electronics II EEEE482 for CA3046
+.MODEL QRIT3046 NPN (IS=10.000E-15 BF=145.76 VAF=100 IKF=46.747E-3 ISE=114.23E-15 NE=1.4830
++ BR=.1001 VAR=100 IKR=10.010E-3 ISC=10.000E-15 RC=10 CJE=1.0260E-12  MJE=.33333 CJC=991.79E-15
++ MJC=.33333 TF=277.09E-12 XTF=309.38 VTF=16.364 ITF=1.7597 TR=10.000E-9)
+*
+*-----------------------------------------------------------------------
+*Used in Electronics II for CD4007 inverter chip
+*Note: Properties L=10u W=170u Ad=8500p As=8500p Pd=440u Ps=440u NRD=0.059 NRS=0.059
+.MODEL RIT4007N7 NMOS (LEVEL=7
++VERSION=3.1 CAPMOD=2 MOBMOD=1
++TOX=4E-8 XJ=2.9E-7 NCH=4E15 NSUB=5.33E15 XT=8.66E-8 
++VTH0=1.4 U0= 1300 WINT=2.0E-7 LINT=1E-7 
++NGATE=5E20 RSH=300 JS=3.23E-8 JSW=3.23E-8 CJ=6.8E-8 MJ=0.5 PB=0.95
++CJSW=1.26E-10 MJSW=0.5 PBSW=0.95 PCLM=5
++CGSO=3.4E-10 CGDO=3.4E-10 CGBO=5.75E-10)
+*
+*Used in Electronics II for CD4007 inverter chip
+*Note: Properties L=10u W=360u Ad=18000p As=18000p Pd=820u Ps=820u NRS=O.027 NRD=0.027
+.MODEL RIT4007P7 PMOS (LEVEL=7
++VERSION=3.1 CAPMOD=2 MOBMOD=1
++TOX=5E-8 XJ=2.26E-7 NCH=1E15 NSUB=8E14 XT=8.66E-8
++VTH0=-1.65 U0= 400 WINT=1.0E-6 LINT=1E-6
++NGATE=5E20 RSH=1347 JS=3.51E-8 JSW=3.51E-8 CJ=5.28E-8 MJ=0.5 PB=0.94
++CJSW=1.19E-10 MJSW=0.5 PBSW=0.94 pCLM=5
++CGSO=4.5E-10 CGDO=4.5E-10 CGBO=5.75E-10)
+*-----------------------------------------------------------------------
+*Used for ALD1103 chips
+*Note: Properties L=10u W=880u
+.MODEL RITALDN3 NMOS (LEVEL=3 
++TPG=1 TOX=6.00E-8 LD=2.08E-6 WD=4.00E-7
++U0= 1215 VTO=0.73 THETA=0.222 RS=0.74 RD=0.74 DELTA=2.5 
++NSUB=1.57E16 XJ=1.3E-6 VMAX=4.38E6 ETA=0.913 KAPPA=0.074 NFS=3E11
++CGSO=5.99E-10 CGDO=5.99E-10 CGBO=4.31E-10 PB=0.90 XQC=0.4)
+*
+*Used for ALD1103 chips
+*Note: Properties L=10u W=880u
+.MODEL RITALDP3 PMOS (LEVEL=3 
++TPG=1 TOX=6.00E-8 LD=2.08E-6 WD=4.00E-7
++U0=550 VTO=-0.73 THETA=0.222 RS=0.74 RD=0.74 DELTA=2.5 
++NSUB=1.57E16 XJ=1.3E-6 VMAX=4.38E6 ETA=0.913 KAPPA=0.074 NFS=3E11
++CGSO=5.99E-10 CGDO=5.99E-10 CGBO=4.31E-10 PB=0.90 XQC=0.4)
+*-----------------------------------------------------------------------
+*4-4-2013 LTSPICE uses Level=8
+*For RIT Sub-CMOS 150 process with L=2u
+.MODEL RITSUBN8 NMOS (LEVEL=8 
++VERSION=3.1 CAPMOD=2 MOBMOD=1
++TOX=1.5E-8 XJ=1.84E-7 NCH=1.45E17 NSUB=5.33E16 XT=8.66E-8 
++VTH0=1.0 U0= 600 WINT=2.0E-7 LINT=1E-7 
++NGATE=5E20 RSH=1082 JS=3.23E-8 JSW=3.23E-8 CJ=6.8E-4 MJ=0.5 PB=0.95
++CJSW=1.26E-10 MJSW=0.5 PBSW=0.95 PCLM=5
++CGSO=3.4E-10 CGDO=3.4E-10 CGBO=5.75E-10)
+*
+*4-4-2013  LTSPICE uses Level=8
+*For RIT Sub-CMOS 150 process with L=2u
+.MODEL RITSUBP8 PMOS (LEVEL=8
++VERSION=3.1 CAPMOD=2 MOBMOD=1
++TOX=1.5E-8 XJ=2.26E-7 NCH=7.12E16 NSUB=3.16E16 XT=8.66E-8
++VTH0=-1.0 U0= 376.72 WINT=2.0E-7 LINT=2.26E-7
++NGATE=5E20 RSH=1347 JS=3.51E-8 JSW=3.51E-8 CJ=5.28E-4 MJ=0.5 PB=0.94
++CJSW=1.19E-10 MJSW=0.5 PBSW=0.94
++CGSO=4.5E-10 CGDO=4.5E-10 CGBO=5.75E-10)
+*-----------------------------------------------------------------------
+* From Sub-Micron CMOS Manufacturing Classes in MicroE ~ 1um Technology
+.MODEL RITSUBN7 NMOS (LEVEL=7
++VERSION=3.1 CAPMOD=2 MOBMOD=1
++TOX=1.5E-8 XJ=1.84E-7 NCH=1.45E17 NSUB=5.33E16 XT=8.66E-8 
++VTH0=1.0 U0= 600 WINT=2.0E-7 LINT=1E-7 
++NGATE=5E20 RSH=1082 JS=3.23E-8 JSW=3.23E-8 CJ=6.8E-4 MJ=0.5 PB=0.95
++CJSW=1.26E-10 MJSW=0.5 PBSW=0.95 PCLM=5
++CGSO=3.4E-10 CGDO=3.4E-10 CGBO=5.75E-10)
+*
+*From Sub-Micron CMOS Manufacturing Classes in MicroE ~ 1um Technology
+.MODEL RITSUBP7 PMOS (LEVEL=7
++VERSION=3.1 CAPMOD=2 MOBMOD=1
++TOX=1.5E-8 XJ=2.26E-7 NCH=7.12E16 NSUB=3.16E16 XT=8.66E-8
++VTH0=-1.0 U0= 376.72 WINT=2.0E-7 LINT=2.26E-7
++NGATE=5E20 RSH=1347 JS=3.51E-8 JSW=3.51E-8 CJ=5.28E-4 MJ=0.5 PB=0.94
++CJSW=1.19E-10 MJSW=0.5 PBSW=0.94
++CGSO=4.5E-10 CGDO=4.5E-10 CGBO=5.75E-10)
+*-----------------------------------------------------------------------
+*4-4-2013  LTSPICE uses Level=8
+* From Electronics II EEEE482 FOR ~100nm Technology 
+.model EECMOSN  NMOS (LEVEL=8
++VERSION=3.1 CAPMOD=2 MOBMOD=1
++TOX=5E-9 XJ=1.84E-7 NCH=1E17 NSUB=5E16 XT=5E-8 
++VTH0=0.4 U0= 200 WINT=1E-8 LINT=1E-8 
++NGATE=5E20 RSH=1000 JS=3.23E-8 JSW=3.23E-8 CJ=6.8E-4 MJ=0.5 PB=0.95
++CJSW=1.26E-10 MJSW=0.5 PBSW=0.95 PCLM=5
++CGSO=3.4E-10 CGDO=3.4E-10 CGBO=5.75E-10)
+*
+*4-4-2013  LTSPICE uses Level=8
+* From Electronics II EEEE482 FOR ~100nm Technology
+.model EECMOSP  PMOS (LEVEL=8
++TOX=5E-9 XJ=0.05E-6 NCH=1E17 NSUB=5E16 XT=5E-8
++VTH0=-0.4 U0= 100 WINT=1E-8 LINT=1E-8
++NGATE=5E20 RSH=1000 JS=3.51E-8 JSW=3.51E-8 CJ=5.28E-4 MJ=0.5 PB=0.94
++CJSW=1.19E-10 MJSW=0.5 PBSW=0.94 PCLM=5
++CGSO=4.5E-10 CGDO=4.5E-10 CGBO=5.75E-10)
+*-----------------------------------------------------------------------
+
+**** RESUMING lab5.cir ****
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 2ms 0 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source LAB5_6
+M_M1         N00563 N00917 N00131 VSS RIT4007N7  
++ L=10u  
++ W=170u      
++ NRD=0.1  
++ NRS=0.1   
+M_M4         VDD N00563 N00571 VDD RIT4007P7  
++ L=10u  
++ W=170u      
++ NRD=0.1  
++ NRS=0.1   
+M_M2         N00131 N00908 N00571 VSS RIT4007N7  
++ L=10u  
++ W=170u      
++ NRD=0.1  
++ NRS=0.1   
+V_V1         VDD 0 5Vdc
+V_V2         0 VSS 5Vdc
+M_M5         VSS N00368 N00368 VSS RIT4007N7  
++ L=10u  
++ W=170u      
++ NRD=0.1  
++ NRS=0.1   
+M_M6         N00131 N00368 VSS VSS RIT4007N7  
++ L=10u  
++ W=170u      
++ NRD=0.1  
++ NRS=0.1   
+R_R1         N00368 VDD  1.3k TC=0,0 
+M_M3         N00563 N00563 VDD VDD RIT4007P7  
++ L=10u  
++ W=170u      
++ NRD=0.1  
++ NRS=0.1   
+R_R2         N02186 N00908  1k TC=0,0 
+R_R3         N00908 N00917  51 TC=0,0 
+V_V3         N00917 0 0Vdc
+V_V4         N01053 N00917  
++SIN 0 100mV 1kHz 0 0 0
+M_M7         VDD N00571 N01529 VDD RIT4007P7  
++ L=10u  
++ W=170u      
++ NRD=0.1  
++ NRS=0.1   
+M_M8         N03173 N00368 N01395 VSS RIT4007N7  
++ L=10u  
++ W=170u      
++ NRD=0.1  
++ NRS=0.1   
+R_R4         N01395 VSS  200 TC=0,0 
+C_C1         N01529 N01539  100u  TC=0,0 
+R_R5         N01539 0  20k TC=0,0 
+C_C2         N02186 N01053  100u  TC=0,0 
+R_R7         N01529 N03173  2.15k TC=0,0 
+
+**** RESUMING lab5.cir ****
+.END
+
+WARNING(ORPSIM-15235): Mosfet M_M1, model RIT4007N7: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M1, model RIT4007N7: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M2, model RIT4007N7: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M2, model RIT4007N7: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M5, model RIT4007N7: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M5, model RIT4007N7: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M6, model RIT4007N7: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M6, model RIT4007N7: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M8, model RIT4007N7: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M8, model RIT4007N7: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M4, model RIT4007P7: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M4, model RIT4007P7: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M3, model RIT4007P7: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M3, model RIT4007P7: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M7, model RIT4007P7: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M7, model RIT4007P7: Ps = 0 is less than W
+
+INFO(ORPSIM-15454): Model RIT4007N7: Using BSIM VERSION 3.1 or lower
+
+INFO(ORPSIM-15454): Model RIT4007P7: Using BSIM VERSION 3.1 or lower
+
+**** 12/06/18 17:49:07 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-lab5"  [ E:\Electronics 1 Lab\lab5\prelab\lab5_6-PSpiceFiles\SCHEMATIC1\lab5.sim ] 
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               RITMEMDIODE     SolarCell       
+          IS    3.020000E-09  235.000000E-09 
+          BV  400             400            
+          RS  207               6.85         
+         CJO  200.000000E-12  200.000000E-12 
+          VJ     .6                          
+
+
+**** 12/06/18 17:49:07 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-lab5"  [ E:\Electronics 1 Lab\lab5\prelab\lab5_6-PSpiceFiles\SCHEMATIC1\lab5.sim ] 
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               QRITNPN         QRIT3046        
+               NPN             NPN             
+       LEVEL    1               1            
+          IS    6.734000E-15   10.000000E-15 
+          BF  416             145.76         
+          NF    1               1            
+         VAF  109             100            
+         IKF     .06678          .046747     
+         ISE    6.734000E-15  114.230000E-15 
+          NE    1.259           1.483        
+          BR    1                .1001       
+          NR    1               1            
+         VAR                  100            
+         IKR                     .01001      
+         ISC                   10.000000E-15 
+         ISS    0               0            
+          RB   10                            
+          RE    0               0            
+          RC    1              10            
+         CJE    0               1.026000E-12 
+         VJE     .75             .75         
+         MJE                     .33333      
+         CJC    0             991.790000E-15 
+         VJC     .75             .75         
+         MJC     .33             .33333      
+        XCJC    1               1            
+         CJS    0               0            
+         VJS     .75             .75         
+          TF                  277.090000E-12 
+         XTF                  309.38         
+         VTF                   16.364        
+         ITF                    1.7597       
+          TR                   10.000000E-09 
+          KF    0               0            
+          AF    1               1            
+          CN    2.42            2.42         
+           D     .87             .87         
+
+
+**** 12/06/18 17:49:07 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-lab5"  [ E:\Electronics 1 Lab\lab5\prelab\lab5_6-PSpiceFiles\SCHEMATIC1\lab5.sim ] 
+
+
+ ****     MOSFET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               RIT4007N7       RIT4007P7       RITALDN3        RITALDP3        
+               NMOS            PMOS            NMOS            PMOS            
+       LEVEL    7               7               3               3            
+           L  100.000000E-06  100.000000E-06  100.000000E-06  100.000000E-06 
+           W  100.000000E-06  100.000000E-06  100.000000E-06  100.000000E-06 
+          LD                                    2.080000E-06    2.080000E-06 
+          WD                                  400.000000E-09  400.000000E-09 
+         VTO    1.4            -1.65             .73            -.73         
+          KP   51.797160E-06   41.437730E-06   34.531440E-06   34.531440E-06 
+       GAMMA    0               0               1.254373        1.254373     
+         PHI                                     .718767         .718767     
+      LAMBDA    0               0               0               0            
+          RD                                     .74             .74         
+          RS                                     .74             .74         
+         RSH  300               1.347000E+03                                 
+          IS    1.000000E-15    1.000000E-15   10.000000E-15   10.000000E-15 
+          JS   32.300000E-09   35.100000E-09    0               0            
+        JSSW   32.300000E-09   35.100000E-09                                 
+          PB     .95             .94             .9              .9          
+        PBSW     .95             .94             .9              .9          
+          CJ   68.000000E-09   52.800000E-09  380.486100E-06  380.486100E-06 
+        CJSW  126.000000E-12  119.000000E-12    0               0            
+        MJSW     .5              .5                                          
+        CGSO  340.000000E-12  450.000000E-12  599.000000E-12  599.000000E-12 
+        CGDO  340.000000E-12  450.000000E-12  599.000000E-12  599.000000E-12 
+        CGBO  575.000000E-12  575.000000E-12  431.000000E-12  431.000000E-12 
+        NSUB    5.330000E+15  800.000000E+12   15.700000E+15   15.700000E+15 
+         NFS                                  300.000000E+09  300.000000E+09 
+         TOX   40.000000E-09   50.000000E-09   60.000000E-09   60.000000E-09 
+          XJ  290.000000E-09  226.000000E-09    1.300000E-06    1.300000E-06 
+       UCRIT   10.000000E+03   10.000000E+03   10.000000E+03   10.000000E+03 
+        VMAX                                    4.380000E+06    4.380000E+06 
+       DELTA                                    2.5             2.5          
+       THETA                                     .222            .222        
+         ETA                                     .913            .913        
+       KAPPA                                     .074            .074        
+      DIOMOD    2               2               1               1            
+         VFB                                    0               0            
+        LETA    0               0               0               0            
+        WETA    0               0               0               0            
+          U0    1.300000E+03  400               1.215000E+03  550            
+        TEMP                                    0               0            
+         VDD                                    5               5            
+       XPART    0               0               0               0            
+        VTH0    1.4            -1.65                                         
+          UA    2.250000E-09    2.250000E-09                                 
+          UB  587.000000E-21  587.000000E-21                                 
+          UC  -46.500000E-12  -46.500000E-12                                 
+        VSAT   80.000000E+03   80.000000E+03                                 
+        RDSW    0               0                                            
+        VOFF    -.08            -.08                                         
+        PCLM    5               5                                            
+          A0    1               1                                            
+          A1    0               0                                            
+          A2    1               1                                            
+       NPEAK    4.000000E+15    1.000000E+15                                 
+          XT   86.600000E-09   86.600000E-09                                 
+         LDD    0               0                                            
+        LITL  186.547600E-09  184.119500E-09                                 
+         UA1    4.310000E-09    4.310000E-09                                 
+         UB1   -7.610000E-18   -7.610000E-18                                 
+         UC1  -56.000000E-12  -56.000000E-12                                 
+        DSUB     .56             .56                                         
+       NGATE  500.000000E+18  500.000000E+18                                 
+      MOBMOD    1               1                                            
+        PRWG    0               0                                            
+        LINT  100.000000E-09    1.000000E-06                                 
+        WINT  200.000000E-09    1.000000E-06                                 
+         DLC  100.000000E-09    1.000000E-06                                 
+         DWC  200.000000E-09    1.000000E-06                                 
+          CF   52.713880E-12   48.302460E-12                                 
+        NOIA  100.000000E+18    9.900000E+18                                 
+        NOIB   50.000000E+03    2.400000E+03                                 
+        NOIC   -1.400000E-12    1.400000E-12                                 
+         VTM     .025864         .025864                                     
+     VERSION    3.1             3.1                                          
+       PBSWG     .95             .94                                         
+       MJSWG     .5              .5                                          
+       CJSWG  126.000000E-12  119.000000E-12                                 
+       JTSCD   32.300000E-09   35.100000E-09                                 
+      JSTSCD   32.300000E-09   35.100000E-09                                 
+
+
+               RITSUBN8        RITSUBP8        RITSUBN7        RITSUBP7        
+               NMOS            PMOS            NMOS            PMOS            
+       LEVEL    8               8               7               7            
+           L  100.000000E-06  100.000000E-06  100.000000E-06  100.000000E-06 
+           W  100.000000E-06  100.000000E-06  100.000000E-06  100.000000E-06 
+         VTO    1              -1               1              -1            
+          KP  138.125800E-06  138.125800E-06  138.125800E-06  138.125800E-06 
+       GAMMA    0               0               0               0            
+      LAMBDA    0               0               0               0            
+         RSH    1.082000E+03    1.347000E+03    1.082000E+03    1.347000E+03 
+          IS    1.000000E-15    1.000000E-15    1.000000E-15    1.000000E-15 
+          JS   32.300000E-09   35.100000E-09   32.300000E-09   35.100000E-09 
+        JSSW   32.300000E-09   35.100000E-09   32.300000E-09   35.100000E-09 
+          PB     .95             .94             .95             .94         
+        PBSW     .95             .94             .95             .94         
+          CJ  680.000000E-06  528.000000E-06  680.000000E-06  528.000000E-06 
+        CJSW  126.000000E-12  119.000000E-12  126.000000E-12  119.000000E-12 
+        MJSW     .5              .5              .5              .5          
+        CGSO  340.000000E-12  450.000000E-12  340.000000E-12  450.000000E-12 
+        CGDO  340.000000E-12  450.000000E-12  340.000000E-12  450.000000E-12 
+        CGBO  575.000000E-12  575.000000E-12  575.000000E-12  575.000000E-12 
+        NSUB   53.300000E+15   31.600000E+15   53.300000E+15   31.600000E+15 
+         TOX   15.000000E-09   15.000000E-09   15.000000E-09   15.000000E-09 
+          XJ  184.000000E-09  226.000000E-09  184.000000E-09  226.000000E-09 
+       UCRIT   10.000000E+03   10.000000E+03   10.000000E+03   10.000000E+03 
+      DIOMOD    1               1               2               2            
+         VFB   -1              -1                                            
+        LETA    0               0               0               0            
+        WETA    0               0               0               0            
+          U0  600             376.72          600             376.72         
+       XPART    0               0               0               0            
+        VTH0    1              -1               1              -1            
+          UA    1.000000E-09    1.000000E-09    2.250000E-09    2.250000E-09 
+          UB  100.000000E-21  100.000000E-21  587.000000E-21  587.000000E-21 
+          UC    -.0465          -.0465        -46.500000E-12  -46.500000E-12 
+        VSAT   80.000000E+03   80.000000E+03   80.000000E+03   80.000000E+03 
+        RDSW  200             200               0               0            
+        VOFF    -.08            -.08            -.08            -.08         
+        PCLM    5                               5                            
+          A0    1               1               1               1            
+          A1    0               0               0               0            
+          A2    1               1               1               1            
+       NPEAK  145.000000E+15   71.200000E+15  145.000000E+15   71.200000E+15 
+          XT   86.600000E-09   86.600000E-09   86.600000E-09   86.600000E-09 
+         LDD    0               0               0               0            
+        LITL   90.994510E-09  100.846400E-09   90.994510E-09  100.846400E-09 
+         UA1    1.000000E-09    1.000000E-09    4.310000E-09    4.310000E-09 
+         UB1   -1.000000E-18   -1.000000E-18   -7.610000E-18   -7.610000E-18 
+         UC1     .067            .067         -56.000000E-12  -56.000000E-12 
+        DSUB     .56             .56             .56             .56         
+       NGATE  500.000000E+18  500.000000E+18  500.000000E+18  500.000000E+18 
+      MOBMOD    1               1               1               1            
+        PRWG    1               1               0               0            
+        LINT  100.000000E-09  226.000000E-09  100.000000E-09  226.000000E-09 
+        WINT  200.000000E-09  200.000000E-09  200.000000E-09  200.000000E-09 
+         DLC  100.000000E-09  226.000000E-09  100.000000E-09  226.000000E-09 
+         DWC  200.000000E-09  200.000000E-09  200.000000E-09  200.000000E-09 
+          CF  107.725800E-12  107.725800E-12   72.989890E-12   72.989890E-12 
+        NOIA  100.000000E+18    9.900000E+18  100.000000E+18    9.900000E+18 
+        NOIB   50.000000E+03    2.400000E+03   50.000000E+03    2.400000E+03 
+        NOIC   -1.400000E-12    1.400000E-12   -1.400000E-12    1.400000E-12 
+     VERSION    3.1             3.1             3.1             3.1          
+       PBSWG     .95             .94             .95             .94         
+       MJSWG     .5              .5              .5              .5          
+       CJSWG  126.000000E-12  119.000000E-12  126.000000E-12  119.000000E-12 
+       JTSCD   32.300000E-09   35.100000E-09   32.300000E-09   35.100000E-09 
+      JSTSCD   32.300000E-09   35.100000E-09   32.300000E-09   35.100000E-09 
+        TOXM    3.000000E-09    3.000000E-09                                 
+         LLC    0               0                                            
+         LWC    0               0                                            
+        LWLC    0               0                                            
+         WLC    0               0                                            
+         WWC    0               0                                            
+        WWLC    0               0                                            
+BSIM4oxideTrapDensityC    8.750000E+09    8.750000E+09                                 
+        toxp    3.000000E-09    3.000000E-09                                 
+        dtox    0               0                                            
+          eu    1.67            1                                            
+        aigc     .43             .31                                         
+        bigc     .054            .024                                        
+        cigc     .075            .03                                         
+       aigsd     .43             .31                                         
+       bigsd     .054            .024                                        
+       cigsd     .075            .03                                         
+       dlcig  100.000000E-09  226.000000E-09                                 
+         dwj  200.000000E-09  200.000000E-09                                 
+      CJSWGD  500.000000E-12  500.000000E-12                                 
+      PBSWGD    1               1                                            
+      CJSWGS  500.000000E-12  500.000000E-12                                 
+      PBSWGS    1               1                                            
+        coxe     .01151          .01151                                      
+        coxp     .01151          .01151                                      
+BSIM4factor1   94.868330E-06   94.868330E-06                                 
+
+
+               EECMOSN         EECMOSP         
+               NMOS            PMOS            
+       LEVEL    8               8            
+           L  100.000000E-06  100.000000E-06 
+           W  100.000000E-06  100.000000E-06 
+         VTO     .4             -.4          
+          KP  414.377300E-06  414.377300E-06 
+       GAMMA    0               0            
+      LAMBDA    0               0            
+         RSH    1.000000E+03    1.000000E+03 
+          IS    1.000000E-15    1.000000E-15 
+          JS   32.300000E-09   35.100000E-09 
+        JSSW   32.300000E-09   35.100000E-09 
+          PB     .95             .94         
+        PBSW     .95             .94         
+          CJ  680.000000E-06  528.000000E-06 
+        CJSW  126.000000E-12  119.000000E-12 
+        MJSW     .5              .5          
+        CGSO  340.000000E-12  450.000000E-12 
+        CGDO  340.000000E-12  450.000000E-12 
+        CGBO  575.000000E-12  575.000000E-12 
+        NSUB   50.000000E+15   50.000000E+15 
+         TOX    5.000000E-09    5.000000E-09 
+          XJ  184.000000E-09   50.000000E-09 
+       UCRIT   10.000000E+03   10.000000E+03 
+      DIOMOD    1               1            
+         VFB   -1              -1            
+        LETA    0               0            
+        WETA    0               0            
+          U0  200             100            
+       XPART    0               0            
+        VTH0     .4             -.4          
+          UA    1.000000E-09    1.000000E-09 
+          UB  100.000000E-21  100.000000E-21 
+          UC    -.0465        -46.500000E-12 
+        VSAT   80.000000E+03   80.000000E+03 
+        RDSW  200             200            
+        VOFF    -.08            -.08         
+        PCLM    5               5            
+          A0    1               1            
+          A1    0               0            
+          A2    1               1            
+       NPEAK  100.000000E+15  100.000000E+15 
+          XT   50.000000E-09   50.000000E-09 
+         LDD    0               0            
+        LITL   52.535700E-09   27.386130E-09 
+         UA1    1.000000E-09    1.000000E-09 
+         UB1   -1.000000E-18   -1.000000E-18 
+         UC1     .067            .025        
+        DSUB     .56             .56         
+       NGATE  500.000000E+18  500.000000E+18 
+      MOBMOD    1               0            
+        PRWG    1               1            
+        LINT   10.000000E-09   10.000000E-09 
+        WINT   10.000000E-09   10.000000E-09 
+         DLC   10.000000E-09   10.000000E-09 
+         DWC   10.000000E-09   10.000000E-09 
+          CF  107.725800E-12  107.725800E-12 
+        NOIA  100.000000E+18    9.900000E+18 
+        NOIB   50.000000E+03    2.400000E+03 
+        NOIC   -1.400000E-12    1.400000E-12 
+     VERSION    3.1             4.1          
+       PBSWG     .95             .94         
+       MJSWG     .5              .5          
+       CJSWG  126.000000E-12  119.000000E-12 
+       JTSCD   32.300000E-09   35.100000E-09 
+      JSTSCD   32.300000E-09   35.100000E-09 
+        TOXM    3.000000E-09    3.000000E-09 
+         LLC    0               0            
+         LWC    0               0            
+        LWLC    0               0            
+         WLC    0               0            
+         WWC    0               0            
+        WWLC    0               0            
+BSIM4oxideTrapDensityC    8.750000E+09    8.750000E+09 
+        toxp    3.000000E-09    3.000000E-09 
+        dtox    0               0            
+          eu    1.67            1            
+        aigc     .43             .31         
+        bigc     .054            .024        
+        cigc     .075            .03         
+       aigsd     .43             .31         
+       bigsd     .054            .024        
+       cigsd     .075            .03         
+       dlcig   10.000000E-09   10.000000E-09 
+         dwj   10.000000E-09   10.000000E-09 
+      CJSWGD  500.000000E-12  500.000000E-12 
+      PBSWGD    1               1            
+      CJSWGS  500.000000E-12  500.000000E-12 
+      PBSWGS    1               1            
+        coxe     .01151          .01151      
+        coxp     .01151          .01151      
+BSIM4factor1   94.868330E-06   94.868330E-06 
+
+
+WARNING(ORPSIM-15235): Mosfet M_M1, model RIT4007N7: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M1, model RIT4007N7: Ps = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M4, model RIT4007P7: Pd = 0 is less than W
+
+WARNING(ORPSIM-15235): Mosfet M_M4, model RIT4007P7: Ps = 0 is less than W
+
+**** 12/06/18 17:49:07 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-lab5"  [ E:\Electronics 1 Lab\lab5\prelab\lab5_6-PSpiceFiles\SCHEMATIC1\lab5.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  VDD)    5.0000  (  VSS)   -5.0000  (N00131)   -3.4060 (N00368)    -.6403     
+
+(N00563)     .0134 (N00571)     .0134 (N00908)    0.0000 (N00917)    0.0000     
+
+(N01053)    0.0000 (N01395)   -4.6361 (N01529)     .0110 (N01539)    0.0000     
+
+(N02186)    0.0000 (N03173)   -3.9008 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -9.797E-03
+    V_V2        -9.797E-03
+    V_V3         0.000E+00
+    V_V4         0.000E+00
+
+    TOTAL POWER DISSIPATION   9.80E-02  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 12/06/18 17:49:07 ****** PSpice 17.2.0 (March 2016) ****** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-lab5"  [ E:\Electronics 1 Lab\lab5\prelab\lab5_6-PSpiceFiles\SCHEMATIC1\lab5.sim ] 
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .31
+

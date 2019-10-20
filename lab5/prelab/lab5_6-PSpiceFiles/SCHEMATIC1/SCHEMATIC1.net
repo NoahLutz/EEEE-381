@@ -1,0 +1,86 @@
+* source LAB5_6
+M_M1         N00563 0 N00131 VSS RIT4007N7  
++ L=10u  
++ W=170u  
++ AD=8500p  
++ AS=8500p  
++ PD=440u  
++ PS=440u  
++ NRD=0.059  
++ NRS=0.059   
+M_M4         VDD N00563 N00571 VDD RIT4007P7  
++ L=10u  
++ W=360u  
++ AD=8500p  
++ AS=8500p  
++ PD=440u  
++ PS=440u  
++ NRD=0.027  
++ NRS=0.027   
+M_M2         N00131 N00908 N00571 VSS RIT4007N7  
++ L=10u  
++ W=170u  
++ AD=8500p  
++ AS=8500p  
++ PD=440u  
++ PS=440u  
++ NRD=0.059  
++ NRS=0.059   
+V_V1         VDD 0 5Vdc
+V_V2         0 VSS 5Vdc
+M_M5         VSS N00368 N00368 VSS RIT4007N7  
++ L=10u  
++ W=170u  
++ AD=8500p  
++ AS=8500p  
++ PD=440u  
++ PS=440u  
++ NRD=0.059  
++ NRS=0.059   
+M_M6         N00131 N00368 VSS VSS RIT4007N7  
++ L=10u  
++ W=170u  
++ AD=8500p  
++ AS=8500p  
++ PD=440u  
++ PS=440u  
++ NRD=0.059  
++ NRS=0.059   
+R_R1         N00368 VDD  1.3k TC=0,0 
+M_M3         N00563 N00563 VDD VDD RIT4007P7  
++ L=10u  
++ W=360u  
++ AD=8500p  
++ AS=8500p  
++ PD=440u  
++ PS=440u  
++ NRD=0.027  
++ NRS=0.027   
+R_R2         N02186 N00908  1k TC=0,0 
+R_R3         N00908 0  51 TC=0,0 
+M_M7         VDD N00571 N01529 VDD RIT4007P7  
++ L=10u  
++ W=360u  
++ AD=8500p  
++ AS=8500p  
++ PD=440u  
++ PS=440u  
++ NRD=0.027  
++ NRS=0.027   
+M_M8         N03173 N00368 N01395 VSS RIT4007N7  
++ L=10u  
++ W=170u  
++ AD=8500p  
++ AS=8500p  
++ PD=440u  
++ PS=440u  
++ NRD=0.059  
++ NRS=0.059   
+R_R4         N01395 VSS  200 TC=0,0 
+C_C1         N01529 OUTPUT  100u  TC=0,0 
+R_R5         OUTPUT 0  20k TC=0,0 
+C_C2         N02186 INPUT  100u  TC=0,0 
+R_R7         N01529 N03173  2.15k TC=0,0 
+V_V3         INPUT 0 DC 0V AC 1V
++SIN 0V 1V 1Hz 0 0 0
+.PARAM  freq=1hz
